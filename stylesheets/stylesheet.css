@@ -915,6 +915,9 @@ footer a:hover {
 code, pre {
   margin: 0;
 }
+pre {
+  margin-bottom: 0.5em;
+}
 blockquote {
   font-size: 1.2em;
 }

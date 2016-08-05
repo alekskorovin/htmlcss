@@ -406,6 +406,10 @@
               <li><a href="#animation-fill-mode">animation-fill-mode</a></li>
               <li><a href="#animation-play-state">animation-play-state</a></li>
             </ul>
+            <h3>Инструкция определяющая изменяемые свойства</h3>
+            <ul>
+              <li><a href="#keyframes">@keyframes</a></li>
+            </ul>
 
             <h3><a id="animation-name" class="anchor" href="#animation-name" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-name</h3>
             <p>
@@ -443,7 +447,7 @@
 
             <h3><a id="animation-iteration-count" class="anchor" href="#animation-iteration-count" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-iteration-count</h3>
             <p>
-              Определяет количество повторении анимации. По умолчанию используется значение 1, что означает что анимация будет воспроизведена один раз..
+              Определяет количество повторении анимации. По умолчанию используется значение 1, что означает что анимация будет воспроизведена один раз.
             </p>
             <blockquote>
               <b>Синтаксис:</b>
@@ -452,10 +456,354 @@
             <p>
               <b>&lt;количество_повторений&gt;</b> это положительное число, по умолчанию 1. Для зацикленной анимации используется значение <b>infinite</b>.
             </p>
-            <pre><code class="css">animation-duration: 2s;</code></pre>
-            <pre><code class="css">animation-duration: .3s;</code></pre>
-            <pre><code class="css">animation-duration: .3s, 1s, .5s; /* Если применяется несколько анимаций */</code></pre>
+            <pre><code class="css">animation-iteration-count: 2;</code></pre>
+            <pre><code class="css">animation-iteration-count: infinite;</code></pre>
             <hr />
+            <p>
+              Используя только эти три свойства вместе с инструкцией @keyframes можно создавать цикличную анимацию.
+            </p>
+            <p>
+              Заданы параметры анимации: имя, длительность, количество повторений (в примере задана бесконечность, значение infinite).
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/pbxdqA/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/pbxdqA/'>pbxdqA</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+
+            <hr />
+
+            <h3><a id="animation-timing-function" class="anchor" href="#animation-timing-function" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-timing-function</h3>
+            <p>
+              Определяет функцию плавности анимации.
+            </p>
+            <p>
+              Значения такие же как и в CSS Transitions:
+              ease, linear, ease-in, ease-out, ease-in-out, step-start, step-end,
+              steps(&lt;число_шагов&gt;[, [ start | end ] ]),
+              cubic-bezier(&lt;координата_x_точки_P1&gt;, &lt;координата_y_точки_P1&gt;, &lt;координата_x_точки_P1&gt;, &lt;координата_y_точки_P2&gt;)).
+            </p>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation-timing-function: &lt;функция_плавности&gt;;
+            </blockquote>
+            <p>
+              <b>&lt;количество_повторений&gt;</b> это положительное число, по умолчанию 1. Для зацикленной анимации используется значение <b>infinite</b>.
+            </p>
+            <pre><code class="css">animation-timing-function: ease-in-out;</code></pre>
+            <pre><code class="css">animation-timing-function: steps(6, end);</code></pre>
+            <p>
+              Предыдущий пример с зацикленной анимацией и добавленным определением функции плавности:
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/ZOqvGR/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/ZOqvGR/'>ZOqvGR</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+            <hr />
+
+            <h3><a id="animation-delay" class="anchor" href="#animation-delay" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-delay</h3>
+            <p>
+              Определяет задержку перед началом анимации.
+            </p>
+            <p>
+              Это разница между временем загрузки элемента и временем начала анимации. По умолчанию значение 0s что означает незамедлительный старт анимации.
+            </p>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation-delay: &lt;задержка_перед_началом_анимации&gt;s;
+            </blockquote>
+            <p>
+              <b>&lt;количество_повторений&gt;</b> это положительное число, по умолчанию 1. Для зацикленной анимации используется значение <b>infinite</b>.
+            </p>
+            <pre><code class="css">animation-delay: 0s;</code></pre>
+            <pre><code class="css">animation-delay: 1.1s;</code></pre>
+
+            <p>
+             В предыдущий пример добавим начальное значение цвета и добавим задержку перед началом анимации в 2s.
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/NAOXRv/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/NAOXRv/'>NAOXRv</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+            <hr />
+
+            <h3><a id="animation-direction" class="anchor" href="#animation-direction" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-direction</h3>
+            <p>
+              Определяет направление проигрывания анимации. Помимо обычного проигрывания, анимацию можно проиграть с начала в конец, с начала в конец со сменой направления, с конца в начало со сменой направления.
+            </p>
+            <p>
+              Возможные значения:
+            </p>
+            <ul>
+              <li><b>normal</b> - обычное проигрывание. Значение по умолчанию.</li>
+              <li><b>reverse</b> - проигрывание с конца в начало.</li>
+              <li><b>alternate</b> - с начала в конец со сменой направления.</li>
+              <li><b>alternate-reverse</b> - с конца в начало со сменой направления.</li>
+            </ul>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation-direction: &lt;направление_проигрывания_анимации&gt;;
+            </blockquote>
+            <pre><code class="css">animation-direction: reverse;</code></pre>
+            <pre><code class="css">animation-direction: alternate;</code></pre>
+            <pre><code class="css">animation-direction: alternate-reverse, alternate; /* Если значений несколько */</code></pre>
+            <iframe height='565' scrolling='no' src='//codepen.io/alekskorovin/embed/PzyEpW/?height=565&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/PzyEpW/'>PzyEpW</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+
+            <hr />
+
+            <h3><a id="animation-fill-mode" class="anchor" href="#animation-fill-mode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-fill-mode</h3>
+            <p>
+              Определяет, как нужно применять стили к объекту анимации до и после ее выполнения, так же определяет какие стили будут применены во время задержки заданной через animation-delay.
+            </p>
+            <p>
+              Возможные значения:
+            </p>
+            <ul>
+              <li><b>none</b> - cтили анимации не будут применены к элементу до и после ее выполнения.</li>
+              <li><b>forwards</b> - по окончанию анимации элемент сохранит стили последнего ключевого кадра.</li>
+              <li><b>backwards</b> - на протяжении периода задержки элемент сохранит стили первого ключевого кадра. Первый ключевой кадр определяется значением animation-direction.
+                <p>
+                Для использования этого значения, должна быть задана задержка animation-delay.
+                </p>
+              </li>
+              <li><b>both</b> - будут применены стили первого и последнего ключевого кадра.
+                <p>
+                  Для использования этого значения, должна быть задана задержка animation-delay.
+                </p>
+              </li>
+            </ul>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation-fill-mode: &lt;режим_применения_стилей&gt;;
+            </blockquote>
+            <pre><code class="css">animation-fill-mode: forwards;</code></pre>
+            <pre><code class="css">animation-fill-mode: backwards;</code></pre>
+            <pre><code class="css">animation-direction: forwards, both; /* Если значений несколько */</code></pre>
+            <iframe height='650' scrolling='no' src='//codepen.io/alekskorovin/embed/BzqYNx/?height=650&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/BzqYNx/'>BzqYNx</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+
+            <hr />
+
+            <h3><a id="animation-play-state" class="anchor" href="#animation-play-state" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation-play-state</h3>
+            <p>
+              Определяет запущена ли анимация или поставлена на паузу. Можно использовать это свойство для запуска анимации в необходимый нам момент.
+            </p>
+            <p>
+              Возможные значения:
+            </p>
+            <ul>
+              <li><b>paused</b> - поставлено на паузу.</li>
+              <li><b>running</b> - воспроизводится.</li>
+            </ul>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation-play-state: &lt;состояние_анимации&gt;;
+            </blockquote>
+            <pre><code class="css">animation-play-state: running;</code></pre>
+            <pre><code class="css">animation-play-state: running, paused, running;</code></pre>
+
+            <p>
+              Если навести на квадрат начинает проигрываться анимация
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/zBmWRR/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/zBmWRR/'>zBmWRR</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+
+            <p>
+              Можно использовать несколько анимаций и запускать их используя класс, добавляемый JavaScript-кодом либо псевдо-селектором состояния наведения либо фокуса:
+            </p>
+            <iframe height='600' scrolling='no' src='//codepen.io/alekskorovin/embed/dXgmKa/?height=600&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/dXgmKa/'>dXgmKa</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+            <blockquote>
+              Библиотека анимационных эффектов
+              <a href="https://daneden.github.io/animate.css/">animate.css</a>
+            </blockquote>
+
+            <hr />
+
+            <hr />
+
+            <h3><a id="keyframes" class="anchor" href="#keyframes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>@keyframes</h3>
+            <p>
+              Правила для кадров анимации.
+              Предназначены для задания параметров ключевых кадров анимации.
+            </p>
+            <blockquote>
+              <b>Синтаксис:</b>
+              @keyframes &lt;название_анимации&gt; {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;ключевой_кадр&gt; {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;свойство&gt;: &lt;значение&gt;;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+              }
+            </blockquote>
+            <blockquote>
+              @keyframes &lt;название_анимации&gt; {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;ключевой_кадр_1&gt; {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;свойство_1&gt;: &lt;значение_1&gt;;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&lt;ключевой_кадр_2&gt; {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;свойство_2&gt;: &lt;значение_2&gt;;<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+              }
+            </blockquote>
+
+            <p>
+              <b>&lt;название_анимации&gt;</b> &mdash; любое название без пробелов.
+            </p>
+            <p>
+              <b>&lt;ключевой_кадр&gt;</b> допустимые значения:
+            </p>
+            <ul>
+              <li>from - первый кадр</li>
+              <li>to - последний кадр</li>
+              <li>&lt;процентное_значение&gt;% - кадр размещенный на временной шкале в указанной позиции (от 0 до 100%)</li>
+            </ul>
+            <pre><code class="css">@keyframes moving {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 100px;
+    left: 80%;
+  }
+}</code></pre>
+            <blockquote>
+              <b>Особенность</b>
+              строчки с указанным !important игнорируются.
+            </blockquote>
+            <div class="error">
+              Ошибка
+              <pre><code class="css">@keyframes animation-name {
+  0%   { margin-top: 50px; }
+  50%  { margin-top: 75px !important; } /* строка пропускается */
+  100% { margin-top: 100px; }
+}</code></pre>
+            </div>
+
+            <blockquote>
+              <b>Особенность</b>
+              Если указаны ключевые точки с значением, берется последняя строчка.
+            </blockquote>
+            <div class="error">
+              Ошибка
+              <pre><code class="css">@keyframes animation {
+  0%  { top: 0; }
+  20% { top: 30px; left: 20px; }
+  20% { top: 10px; } /* будет использовано top: 10px */
+}</code></pre>
+            </div>
+            <hr />
+
+            <h3><a id="animation-animation" class="anchor" href="#animation-animation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>animation</h3>
+            <p>
+              Сокращенная запись которая служит для объединения всех свойств относящихся к параметрам анимации в одну строку.
+            </p>
+
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation: &lt;длительность_цикла_анимации_в_секундах&gt;s<br />
+              &lt;функция_плавности&gt;<br />
+              &lt;задержка_перед_началом_анимации&gt;s<br />
+              &lt;количество_повторений&gt;<br />
+              &lt;направление_проигрывания_анимации&gt;<br />
+              &lt;режим_применения_стилей&gt;<br />
+              &lt;состояние_анимации&gt;<br />
+              &lt;название_анимации&gt;;
+            </blockquote>
+            <blockquote>
+              <b>Синтаксис:</b>
+              animation: &lt;animation-duration&gt;s<br />
+              &lt;animation-timing-function&gt;<br />
+              &lt;animation-delay&gt;s<br />
+              &lt;animation-iteration-count&gt;<br />
+              &lt;animation-direction&gt;<br />
+              &lt;animation-fill-mode&gt;<br />
+              &lt;animation-play-state&gt;<br />
+              &lt;animation-name&gt;;
+            </blockquote>
+            <p>
+              Значения по умолчанию:
+            </p>
+            <ul>
+              <li>animation-duration: 0s</li>
+              <li>animation-timing-function: ease</li>
+              <li>animation-delay: 0s</li>
+              <li>animation-iteration-count: 1</li>
+              <li>animation-direction: normal</li>
+              <li>animation-fill-mode: none</li>
+              <li>animation-play-state: running</li>
+              <li>animation-name: none</li>
+            </ul>
+            <pre><code class="css">animation: 3s ease-in-out 1s infinite reverse both paused slidein;
+
+              /* @keyframes duration | timing-function | delay |
+              iteration-count | direction | fill-mode | play-state | name */</code></pre>
+
+            <blockquote>
+              <b>Спецификация</b>
+              <a href="https://www.w3.org/TR/css3-animations/">https://www.w3.org/TR/css3-animations/</a>
+            </blockquote>
+            <blockquote>
+              <b>Документация</b>
+              <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS_Animations/Ispolzovanie_CSS_animatciy">MDN</a>
+              <a href="http://tympanus.net/codrops/css_reference/animation/">Блог CoDrops</a>
+            </blockquote>
+
+            <h3>Пример и задача</h3>
+            <p>
+              Записать все значения используя одно свойство animate. Там где значения нет можно использовать none или 0s в зависимости от параметра
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/wWYjVm/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/wWYjVm/'>wWYjVm</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+            <p>
+              То же самое для этого примера:
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/WxaJdd/?height=265&theme-id=0&default-tab=css,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/WxaJdd/'>WxaJdd</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+            <p>
+              Теперь уберите лишние свойства оставьте минимальное количество необходимых параметров для того чтобы анимация работала так же как сейчас.
+            </p>
+            <hr />
+            <h3>Поддержка браузерами</h3>
+            <p><a href="http://caniuse.com/#feat=css-animation">http://caniuse.com/#feat=css-animation</a> IE10+</p>
+
+          </article>
+
+          <article>
+            <h3>Анимация с JavaScript</h3>
+            <p>
+              Пример простейшей анимации HTML элемента с помощью JavaScript. С течением времени меняется свойство margin-left
+            </p>
+            <iframe height='265' scrolling='no' src='//codepen.io/alekskorovin/embed/XKxYWA/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/alekskorovin/pen/XKxYWA/'>XKxYWA</a> by Aleksey Korovin (<a href='http://codepen.io/alekskorovin'>@alekskorovin</a>) on <a href='http://codepen.io'>CodePen</a>.
+            </iframe>
+          </article>
+
+          <article>
+            <h3>CSS transfrom - трансформации</h3>
+            <p>
+              Можно использовать CSS 2D и CSS 3D трансформации либо с помощью JavaScript либо используя уже известные CSS Transitions и CSS Animations.
+            </p>
+            <p>
+              CSS трансформации работают плавнее и быстрее чем анимация традиционных свойств позиционирования (left, top, bottom, right, margin).
+            </p>
+            <blockquote>
+              <b>Спецификация</b>
+              <a href="https://www.w3.org/TR/css-transforms-1/">CSS Transforms</a>
+            </blockquote>
+            <blockquote>
+              <b>Документация</b>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">MDN</a>
+            </blockquote>
+          </article>
+          <article>
+            <h3>С помощью JavaScript кода можно "рисовать" в HTML-элементе canvas</h3>
+            <p>
+              <a href="https://jsfiddle.net/alekskorovin/BbS7n/">Фракталы</a>
+            </p>
+          </article>
+          <article>
+            <h3>SVG - векторная графика, можно анимировать векторные изображения.</h3>
+            <p><a href="https://jsfiddle.net/alekskorovin/toq3L3bg/">Используя уже устаревшую технологию анимации SVG SMIL можно делать трансформацию формы.</a></p>
+            <p><a href="http://codepen.io/alekskorovin/pen/qNJKjR?editors=1100#0">Линейная анимация SVG (прорисовка по векторному контуру)</a></p>
+            <p><a href="https://css-tricks.com/svg-line-animation-works/">Как работает линейная SVG анимация</a></p>
+            <h1>Вопросы?</h1>
           </article>
 
         </section>
